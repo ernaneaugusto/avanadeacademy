@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eventos do Javascript</title>
+</head>
+
+<body>
+    <h2>Exercício 1</h2>
+    <input type="text" id="message" />
+    <button id="btn">Clique aqui!</button>
+    <h1 id="show"></h1>
+    <hr />
+
+    <h2>Exercício 2</h2>
+    <input type="text" id="message2" onkeyup="showNow()" placeholder="Digite um valor..." />
+    <h1 id="show2"></h1>
+    <hr />
+    
+    <h2>Exercício 3</h2>
+    <input type="text" id="fruit" onkeyup="showFruit()" placeholder="Digite o nome de uma fruta..." />
+    <div id="show3"></div>
+    <hr />
+
+    <script>
+        // Exercicio 1
+        var btn = document.getElementById('btn');
+        var sectionShow = document.getElementById('show')
+        var message = document.getElementById('message')
+
+        btn.addEventListener('click', function (e) {
+            sectionShow.innerHTML = message.value
+        })
+
+        // Exercicio 2
+        function showNow() {
+            var message2 = document.getElementById("message2").value;
+            var sectionShow2 = document.getElementById('show2')
+
+            sectionShow2.innerHTML = message2
+        }
+
+        // Exercicio 3
+        var fruits = [
+            {
+                "name": "uva",
+                "imageUrl": "https://www.teusonhar.com.br/wp-content/uploads/2013/12/sonhar-com-uva.jpg"
+            },
+            {
+                "name": "banana",
+                "imageUrl": "https://cdn1.eliminarcelulite.com.br/wp-content/uploads/2017/01/frutas-que-ajudam-a-prevenir-celulite-jpg-crdownload-620x413.jpg"
+            },
+            {
+                "name": "pera",
+                "imageUrl": "https://png.pngtree.com/element_origin_min_pic/17/02/09/9cd0085cd9df905620e594abc2bacef0.jpg"
+            },
+            {
+                "name": "limão",
+                "imageUrl": "https://cdn.pixabay.com/photo/2015/02/10/18/00/lime-631387_960_720.jpg"
+            },
+            {
+                "name": "abacaxi",
+                "imageUrl": "https://cdn.pixabay.com/photo/2015/02/10/18/00/lime-631387_960_720.jpg"
+            }
+        ];
+
+        function showFruit() {
+            var inputFruitName = document.getElementById('fruit').value;
+            var sectionShow3 = document.getElementById('show3');
+
+            for(var i = 0; i < fruits.length; i++){
+                if(inputFruitName === fruits[i].name) {
+                    var elementImg = document.createElement("img")
+                    elementImg.setAttribute("src", fruits[i].imageUrl)
+                    sectionShow3.appendChild(elementImg);
+                    
+                    console.log(elementImg)
+                } 
+            }
+
+            console.log(inputFruitName)
+        }
+
+    </script>
+</body>
+
+</html>
