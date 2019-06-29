@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lançamento de Foguete</title>
+</head>
+<style>
+
+    body{
+        max-height: 100vh;
+        border: 10px solid black;
+        margin: 0;    
+    }
+    .container{
+        display: flex;
+    }
+    .contagem{
+        width: 50%;
+        background-color: orange;
+        height: 580px;
+    }
+    .lancamento{
+        width: 50%;
+       position: relative;
+    }
+    .foguete{
+        width: 150px;
+        left: 50%;
+        transform: translateX(-50%); 
+        position: absolute;
+        bottom: 0;
+        transition: all ease-in-out 0.5s;
+   }
+    .titulo{
+        font-size: 3em;
+        text-align: center;
+        padding-top: 20%;
+    }
+    .relogio{
+        margin-left: 15%;
+        height: 5%;
+    }
+    .botao{
+        display: block;
+        margin-left: 35%;
+        margin-top: 5%;
+        width: 200px;
+        height: 35px;
+    }
+    #count{
+        text-align: center;
+        font-size: 3em;
+    }
+    .subir{
+        transform: translateY(10px);
+    }
+
+</style>
+<body>
+    <div class="container">
+        <div class="contagem">
+            <h1 class="titulo">Contagem Regressiva</h1>
+            <input type="text" name="" id="time" class="relogio" size="60">
+            <button class="botao" id="btn">Contagem</button>
+            <h1 id="count"></h1>
+        </div>
+        <div class="lancamento">
+            <img src="https://images.vexels.com/media/users/3/145819/isolated/preview/486c34cf5b3b4badd52bc427dbeb44a1-desenhos-animados-de-foguete-by-vexels.png" alt="" class="foguete" id="foguete">  
+        </div>   
+    </div>
+
+
+    
+    <script>
+            // Exercicio 1
+            var btn = document.getElementById('btn');
+            
+            function setCount(time){
+                
+                var count = document.getElementById('count')
+                
+                count.innerHTML = time;
+                
+                
+            }
+            
+            
+            
+            btn.addEventListener('click', function(event) {
+                //  console.log(time.value)
+                var rocket = document.getElementById('rocket')
+                var time = document.getElementById('time').value;
+                
+                var intervalo = setInterval(function(){
+                    time--;
+                   setCount(time);
+                   if(time <= 0){
+                       clearInterval(intervalo);
+                       document.getElementById("foguete").style.transform = "translateY("+time+"0px)"
+                       document.getElementById("foguete").style.bottom = "50%";
+                       
+                     setTimeout( function(){
+                         alert('Lançamento finalizado');                         
+                     },1000)
+
+                   }
+                }, 1000)
+    
+                
+            });
+    
+        </script>
+    
+</body>
+</html>

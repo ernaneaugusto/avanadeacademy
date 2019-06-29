@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>HTTP REQUEST</title>
+</head>
+<body>
+   
+   <section id="content"></section>
+
+   <script>
+      var xhttp = new XMLHttpRequest();
+
+      xhttp.onreadystatechange = function(){
+         if(this.readtState == 4 && this.status == 200){
+            var json = JSON.parse(xhttp.responseText);
+
+            document.getElementById("content").innerHTML = json;
+            console.log(json);
+         }
+         else{
+            console.log(":(", this.status);
+         }
+      }
+
+      xhttp.open("get", "https://api.github.com/users/ernaneaugusto");
+      xhttp.send();
+   </script>
+</body>
+</html>
