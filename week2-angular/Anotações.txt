@@ -8,3 +8,5 @@
 3- Criar COMPONENTE
    - ng g c nomeComponente
 
+4- Criar SERVIÇOS
+   - ng g s nomeServico

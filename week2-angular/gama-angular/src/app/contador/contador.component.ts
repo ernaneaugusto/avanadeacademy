@@ -5,22 +5,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './contador.component.html',
   styleUrls: ['./contador.component.scss']
 })
-export class ContadorComponent implements OnInit {
-  count = 0;
-
-
+export class ContadorComponent {
 
   constructor() { }
-
-  ngOnInit() {
-    setInterval(() => {
-      if (this.count === 5) {
-        clearInterval();
-      }
-      else {
-        this.count++;
-      }
-    }, 1000);
-  }
 
 }
