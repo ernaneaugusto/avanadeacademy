@@ -1,0 +1,22 @@
+<main class="container">
+   <div class="row">
+      <div class="col-12">
+
+         <h1>{{ title }}</h1>
+
+         <app-contador></app-contador>
+
+         <ul class="list-group mt-4 mb-3">
+            <li *ngFor="let item of items" class="list-group-item pb-0">
+               <app-todo-item [data]="item"></app-todo-item>
+            </li>
+         </ul>
+
+         <button (click)="novoItem()" class="btn btn-primary mr-2">Add novo item</button>
+         <button (click)="zerarLista()" class="btn btn-danger">Zerar lista</button>
+
+
+
+      </div>
+   </div>
+</main>

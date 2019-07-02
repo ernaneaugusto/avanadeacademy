@@ -1,0 +1,10 @@
+1- Criar novo projeto
+   - ng new NomeDoProjeto
+   - cd NomeDoProjeto
+
+2- Executar projeto
+   - ng serve
+
+3- Criar COMPONENTE
+   - ng g c nomeComponente
+

@@ -1,0 +1,14 @@
+<h1 [ngStyle]="{ background: count < 3 ? 'purple' : 'gray'  }">Contador: {{ count }}</h1>
+<h2 [ngClass]="{ custom: count > 4 }">Exemplo adição de classe</h2>
+
+<h2  style="color: red" *ngIf="count === 5; else menor;">FIM /o/</h2>
+<ng-template #menor>
+   <h2 style="color: blue">Contando...</h2>
+</ng-template>
+
+<div [ngSwitch]="count">
+   <h2 *ngSwitchCase="1">Switch igual a 1</h2>
+   <h2 *ngSwitchCase="2">Switch igual a 2</h2>
+   <h2 *ngSwitchCase="3">Switch igual a 3</h2>
+   <h2 *ngSwitchDefault>Defaul: FIM</h2>
+</div>
