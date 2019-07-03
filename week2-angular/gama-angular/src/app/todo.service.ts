@@ -18,6 +18,9 @@ export class TodoService {
     // this.contador--;
     this.pContador.next(this.pContador.value - 1)
   }
+  adicionarTodo(todo: Todo){
+    return this.httpClient.post('http://localhost:3000/todos', todo);
+  }
 
   constructor(private httpClient: HttpClient) { }
 

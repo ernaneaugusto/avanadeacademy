@@ -1,0 +1,35 @@
+<form #form="ngForm">
+   <div>
+      Nome da tarefa
+      <input class="form-control" type="text" [(ngModel)]="todo.title" #title="ngModel" required name="title" />
+
+      <div *ngIf="title.errors && title.touched">
+         <div *ngIf="title?.errors.required">Título é obrigatório</div>
+      </div>
+   </div>
+
+   <div>
+      Descrição
+      <input class="form-control" type="text" [(ngModel)]="todo.description" #descricao="ngModel" required
+         name="email" />
+
+      <div *ngIf="descricao.errors && descricao.touched">
+         <div *ngIf="descricao?.errors.required">Descrição é obrigatória</div>
+      </div>
+   </div>
+
+   <div>
+      <label>
+         <input type="checkbox" [(ngModel)]="todo.finished" name="finished" /> Finalizado?
+      </label>
+   </div>
+
+   <div>
+      Data:
+      <input class="form-control" type="date" [(ngModel)]="todo.date" #date="ngModel" required name="date" />
+   </div>
+
+   <button [disabled]="form.invalid" class="btn btn-success mt-2" (click)="enviarTodo()">Enviar</button>
+</form>
+
+<a routerLink="/todos" class="btn btn-primary mt-2">Ver tarefas</a>
