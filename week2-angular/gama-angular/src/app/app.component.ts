@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TodoService } from './todo.service';
+import { map, debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -11,9 +13,20 @@ export class AppComponent implements OnInit {
   title = 'Ernane Toledo';
   items = ["ernane", "toledo"];
 
-  ngOnInit(){
+  contador = 0;
 
-  } // OnInit
+  constructor(public todoService: TodoService){}
+
+  ngOnInit(){
+    this.todoService.contador
+      .pipe(
+        map(x => x * 2),
+        debounceTime(1000)
+      )
+      .subscribe(value => {
+        this.contador = value;
+      })
+  }
 
 
   zerarLista(){

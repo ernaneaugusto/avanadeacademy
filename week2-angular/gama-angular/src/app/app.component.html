@@ -6,13 +6,14 @@
             <div class="card-body text-center">
 
                <!-- <app-contador></app-contador> -->
+               <a class="btn btn-outline-primary" routerLink="/">Home</a> | 
+               <a class="btn btn-outline-primary" routerLink="/todos">Todos</a>
                <app-contador-botoes></app-contador-botoes>
-               <app-contador-botoes></app-contador-botoes>
+               
+               <router-outlet></router-outlet>
 
             </div>
-         </div>
-
-         
+         </div>         
 
       </div>
    </div>

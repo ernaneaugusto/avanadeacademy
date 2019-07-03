@@ -7,11 +7,15 @@ import { TodoService } from '../todo.service';
   styleUrls: ['./contador-botoes.component.scss']
 })
 export class ContadorBotoesComponent implements OnInit {
+  contador = 0;
 
   constructor(public todoService: TodoService) { }
 
   ngOnInit() {
-
+    this.todoService.contador.subscribe(value => {
+      // console.log(value);
+      this.contador = value;
+    })
   }
 
 }
