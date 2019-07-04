@@ -8,9 +8,13 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('Deve ficar 2 ao clicar 2x em aumentar', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to gama-angular-testes!');
+
+    page.getIncrementButton().click();
+    page.getIncrementButton().click();
+
+    expect(page.getCounterText()).toBe("2");
   });
 
   afterEach(async () => {
