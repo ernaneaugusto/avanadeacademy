@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { ContadorComponent } from './contador/contador.component';
 import { BoolPipe } from './bool.pipe';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -12,7 +14,8 @@ import { BoolPipe } from './bool.pipe';
     BoolPipe
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
