@@ -11,8 +11,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { Route } from '@angular/compiler/src/core';
 import { FormsModule } from '@angular/forms'
 import { HomeComponent } from './home/home.component';
-import { CepComponent } from './cep/cep.component';
-import { CepTextoComponent } from './cep-texto/cep-texto.component';
+import { CepComponent } from './cep/cep/cep.component';
+// import { CepTextoComponent } from './cep/cep-texto/cep-texto.component';
 import { AddTodoComponent } from './todo/add-todo/add-todo.component';
 import { BoolPipe } from './todo/bool.pipe';
 // import { TodoModule } from './todo/todo.module';
@@ -21,9 +21,10 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'todos', component: ListaTodosComponent },
   { path: 'todos', loadChildren: () => import('./todo/todo.module').then(mod => mod.TodoModule) },
-  { path: 'todos/add', component: AddTodoComponent },
-  { path: 'cep', component: CepTextoComponent },
-  { path: 'cep/:numero', component: CepComponent }
+  { path: 'cep', loadChildren: () => import('./cep/cep.module').then(mod => mod.CepModule) },
+  { path: 'auth', loadChildren: () => import('./auth/auth.module').then(mod => mod.AuthModule) }
+  // { path: 'todos/add', component: AddTodoComponent },
+  // { path: 'cep/:numero', component: CepComponent }
 ];
 
 @NgModule({
@@ -34,8 +35,8 @@ const routes: Routes = [
     ContadorBotoesComponent,
     ListaTodosComponent,
     HomeComponent,
-    CepComponent,
-    CepTextoComponent,
+    // CepComponent,
+    // CepTextoComponent,
     AddTodoComponent,
     BoolPipe
   ],

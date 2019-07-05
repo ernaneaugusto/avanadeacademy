@@ -5,10 +5,15 @@
          <div class="card justify-content-center">
             <div class="card-body text-center">
 
+               <p class="alert alert-success" *ngIf="email != ''">Logado: {{email}}</p>
+               
                <a class="btn btn-outline-primary mr-2" routerLink="/">Home</a> 
                <a class="btn btn-outline-primary mr-2" routerLink="/todos">Todos</a> 
                <a class="btn btn-outline-primary mr-2" routerLink="/cep">Busca CEP</a> 
-               <a class="btn btn-outline-primary" routerLink="/cep/12521280">CEP</a>
+               <a class="btn btn-outline-primary mr-2" routerLink="/cep/12521280">CEP</a>
+               <a class="btn btn-outline-primary mr-2" routerLink="auth/login">Login</a>
+               <a class="btn btn-outline-primary" routerLink="auth/register">Registrar-se</a>
+               <a class="btn btn-outline-primary" (click)="logout()">Sair</a>
                <app-contador-botoes></app-contador-botoes>
                
                <router-outlet></router-outlet>
