@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contador.component.scss']
 })
 export class ContadorComponent {
-
+  count = 0;
   constructor() { }
 
 }
