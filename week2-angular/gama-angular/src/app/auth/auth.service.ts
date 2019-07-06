@@ -11,6 +11,7 @@ export class AuthService {
 
   private pPassFiresabe: string = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyCarOBQt0I6PwZHsLaxiQBrBJ6lUHFd7uo';
   private pLoginFiresabe: string = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyCarOBQt0I6PwZHsLaxiQBrBJ6lUHFd7uo';
+  private pVefifyFirebase: string = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/getAccountInfo?key=AIzaSyCarOBQt0I6PwZHsLaxiQBrBJ6lUHFd7uo";
 
   //   https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyCustomToken?key=[API_KEY]
 
@@ -40,7 +41,7 @@ export class AuthService {
     this.pUser.next(user);
   }
   verifyToken(token) {
-    return this.httpClient.post("https://www.googleapis.com/identitytoolkit/v3/relyingparty/getAccountInfo?key=AIzaSyCarOBQt0I6PwZHsLaxiQBrBJ6lUHFd7uo", {
+    return this.httpClient.post(this.pVefifyFirebase, {
       idToken: token
     });
   }
