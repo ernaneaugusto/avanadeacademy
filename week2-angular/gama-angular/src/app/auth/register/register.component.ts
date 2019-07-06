@@ -23,10 +23,18 @@ export class RegisterComponent implements OnInit {
     }
 
     this.authService.createAcount(this.email, this.password)
-      .subscribe(value => {
+      .subscribe((value: any) => {
         alert("Usuario criado com sucesso");
         console.log(value);
+
+        localStorage.setItem('token', value.idToken);
+
+        this.authService.setUser({
+          email: value.email,
+          id: value.localId
+        });
       });
+
   }
 
   ngOnInit() {

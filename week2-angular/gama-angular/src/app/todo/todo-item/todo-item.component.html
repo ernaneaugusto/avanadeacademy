@@ -1,7 +1,11 @@
-<div class="text-left">
-   <p><strong>ID:</strong> {{ data.id }}</p>
-   <p><strong>Título:</strong> {{ data.title }}</p>
-   <p><strong>Descrição:</strong> {{ data.description }}</p>
-   <p><strong>Finalizado:</strong> {{ data.finished | bool }}</p>
-   <p><strong>Data:</strong> {{ data.date | date: 'dd/MM/yyyy' }}</p>
+<div class="text-left card mt-3">
+   <div class="card-body">
+      <p><strong>ID:</strong> {{ data.id }}</p>
+      <p><strong>Título:</strong> {{ data.title }}</p>
+      <p><strong>Descrição:</strong> {{ data.description }}</p>
+      <p><strong>Finalizado:</strong> {{ data.finished | bool }}</p>
+      <p><strong>Data:</strong> {{ data.date | date: 'dd/MM/yyyy' }}</p>
+      <button (click)="editar()" class="btn btn-warning mr-2">Editar</button>
+      <button (click)="apagar()" class="btn btn-danger">Excluir</button>
+   </div>
 </div>

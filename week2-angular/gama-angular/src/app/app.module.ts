@@ -15,12 +15,12 @@ import { CepComponent } from './cep/cep/cep.component';
 // import { CepTextoComponent } from './cep/cep-texto/cep-texto.component';
 import { AddTodoComponent } from './todo/add-todo/add-todo.component';
 import { BoolPipe } from './todo/bool.pipe';
+import { AuthGuard } from './auth/auth.guard';
 // import { TodoModule } from './todo/todo.module';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'todos', component: ListaTodosComponent },
-  { path: 'todos', loadChildren: () => import('./todo/todo.module').then(mod => mod.TodoModule) },
+  { path: 'todos', canActivate: [AuthGuard], loadChildren: () => import('./todo/todo.module').then(mod => mod.TodoModule) },
   { path: 'cep', loadChildren: () => import('./cep/cep.module').then(mod => mod.CepModule) },
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then(mod => mod.AuthModule) }
   // { path: 'todos/add', component: AddTodoComponent },
@@ -30,15 +30,15 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    TodoItemComponent,
     ContadorComponent,
     ContadorBotoesComponent,
-    ListaTodosComponent,
     HomeComponent,
+    // TodoItemComponent,
+    // ListaTodosComponent,
     // CepComponent,
     // CepTextoComponent,
-    AddTodoComponent,
-    BoolPipe
+    // AddTodoComponent,
+    // BoolPipe
   ],
   imports: [
     BrowserModule,

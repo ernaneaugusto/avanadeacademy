@@ -5,15 +5,27 @@
          <div class="card justify-content-center">
             <div class="card-body text-center">
 
-               <p class="alert alert-success" *ngIf="email != ''">Logado: {{email}}</p>
+               <div  *ngIf="user$ | async; else deslogado"><strong>Olá, </strong>
+                  <p class="alert alert-success">{{ (user$ | async).email }}</p>
+
+                  <a class="btn btn-outline-primary mr-2" routerLink="/">Home</a> 
+                  <a class="btn btn-outline-primary mr-2" routerLink="/todos/add">+ Todo</a>
+                  <a class="btn btn-outline-primary mr-2" routerLink="/todos">Todos</a>
+                  <a class="btn btn-outline-primary mr-2" routerLink="/cep">Busca CEP</a> 
+                  <a class="btn btn-outline-primary mr-2" routerLink="/cep/12521280">CEP</a> 
+                  <a class="btn btn-outline-primary" href="" (click)="logout()">Sair</a>
+               </div>
+
+               <ng-template #deslogado>
+                     <a class="btn btn-outline-primary mr-2" routerLink="/">Home</a> 
+                  <a class="btn btn-outline-primary mr-2" routerLink="/todos/add">+ Todo</a>
+                     <a class="btn btn-outline-primary mr-2" routerLink="/todos">Todos</a> 
+                     <a class="btn btn-outline-primary mr-2" routerLink="/cep">Busca CEP</a> 
+                     <a class="btn btn-outline-primary mr-2" routerLink="/cep/12521280">CEP</a>
+                     <a class="btn btn-outline-primary mr-2" routerLink="auth/login">Login</a>
+                     <a class="btn btn-outline-primary" routerLink="auth/register">Registrar-se</a>
+               </ng-template>                           
                
-               <a class="btn btn-outline-primary mr-2" routerLink="/">Home</a> 
-               <a class="btn btn-outline-primary mr-2" routerLink="/todos">Todos</a> 
-               <a class="btn btn-outline-primary mr-2" routerLink="/cep">Busca CEP</a> 
-               <a class="btn btn-outline-primary mr-2" routerLink="/cep/12521280">CEP</a>
-               <a class="btn btn-outline-primary mr-2" routerLink="auth/login">Login</a>
-               <a class="btn btn-outline-primary" routerLink="auth/register">Registrar-se</a>
-               <a class="btn btn-outline-primary" (click)="logout()">Sair</a>
                <app-contador-botoes></app-contador-botoes>
                
                <router-outlet></router-outlet>

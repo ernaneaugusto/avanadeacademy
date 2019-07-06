@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
 
           this.authService.setUser({
             email: value.email,
+            id: value.localId
           });
         },
         (error) => {

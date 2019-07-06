@@ -1,7 +1,7 @@
 <form #form="ngForm">
    <div>
       Nome da tarefa
-      <input class="form-control" type="text" [(ngModel)]="todo.title" #title="ngModel" required name="title" />
+      <input class="form-control d-inline-block" type="text" [(ngModel)]="todo.title" #title="ngModel" required name="title" />
 
       <div *ngIf="title.errors && title.touched">
          <div *ngIf="title?.errors.required">Título é obrigatório</div>
@@ -10,7 +10,7 @@
 
    <div>
       Descrição
-      <input class="form-control" type="text" [(ngModel)]="todo.description" #descricao="ngModel" required
+      <input class="form-control d-inline-block" type="text" [(ngModel)]="todo.description" #descricao="ngModel" required
          name="email" />
 
       <div *ngIf="descricao.errors && descricao.touched">
@@ -19,16 +19,15 @@
    </div>
 
    <div>
+      Data:
+      <input class="form-control d-inline-block" type="date" [(ngModel)]="todo.date" #date="ngModel" required name="date" />
+   </div>
+   
+   <div>
       <label>
          <input type="checkbox" [(ngModel)]="todo.finished" name="finished" /> Finalizado?
       </label>
    </div>
-
-   <div>
-      Data:
-      <input class="form-control" type="date" [(ngModel)]="todo.date" #date="ngModel" required name="date" />
-   </div>
-
    <button [disabled]="form.invalid" class="btn btn-success mt-2" (click)="enviarTodo()">Enviar</button>
 </form>
 

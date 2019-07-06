@@ -5,14 +5,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { ListaTodosComponent } from './lista-todos/lista-todos.component';
 import { AddTodoComponent } from './add-todo/add-todo.component';
+import { BoolPipe } from './bool.pipe';
+import { TodoItemComponent } from './todo-item/todo-item.component';
 
 const routes: Routes = [
   { path: '', component: ListaTodosComponent },
-  { path: 'add', component: AddTodoComponent }
+  { path: 'add', component: AddTodoComponent },
+  { path: ':id', component: AddTodoComponent }
 ]
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    TodoItemComponent,
+    ListaTodosComponent,
+    AddTodoComponent,
+    BoolPipe
+  ],
   imports: [
     CommonModule,
     FormsModule,
