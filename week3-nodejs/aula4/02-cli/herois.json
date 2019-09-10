@@ -1,0 +1,20 @@
+[
+   {
+      "id": 1562880742650,
+      "nome": "Tony Stark",
+      "idade": "50",
+      "poder": "O cara"
+   },
+   {
+      "id": 1562881994808,
+      "nome": "Bob Esponja",
+      "idade": "5",
+      "poder": "Caçar Agua Viva"
+   },
+   {
+      "id": 1562890234800,
+      "nome": "FlashMongo",
+      "idade": "50",
+      "poder": "VelocidadeMongo"
+   }
+]
